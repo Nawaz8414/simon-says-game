@@ -1,0 +1,181 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    margin: 0;
+    padding-bottom: 60px; /* Add padding to prevent footer from overlapping content */
+}
+
+/* --- Animated Welcome Screen Styles --- */
+#welcome-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientWave 15s ease infinite;
+    padding: 2rem;
+}
+
+@keyframes gradientWave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* NEW: Welcome screen layout */
+.welcome-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    width: 100%;
+    max-width: 900px;
+}
+.welcome-left, .welcome-right {
+    flex: 1;
+}
+.welcome-right {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: left;
+}
+.welcome-right h2 {
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 0.5rem;
+}
+.welcome-right ul {
+    list-style: none;
+    padding-left: 0;
+}
+.welcome-right li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+#welcome-screen h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+#name-input {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    width: 300px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    text-align: center;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+#name-input::placeholder { color: rgba(255, 255, 255, 0.7); }
+
+#start-button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: white;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+#start-button:hover { background-color: rgba(255, 255, 255, 0.4); }
+
+#game-container { display: none; }
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 50px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+/* --- Score Panel Styles --- */
+#score-panel {
+    width: 220px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+.score-section h3, .score-section h4 { margin: 0; color: #495057; font-weight: 500; }
+.score-section h3 { font-size: 1.3rem; }
+.score-section h4 { font-size: 1rem; color: #6c757d; }
+.score-section p { margin: 5px 0 0 0; font-weight: bold; }
+#current-high-score { font-size: 4.5rem; color: #007bff; }
+#all-time-score-value { font-size: 2rem; color: #343a40; }
+#score-panel hr { border: none; height: 1px; background-color: #dee2e6; margin: 20px 0; }
+
+/* --- Game Buttons Styles --- */
+.btn { height: 180px; width: 180px; border: 10px solid black; border-radius: 20%; margin: 1rem; }
+.btn-container { display: flex; justify-content: center; }
+.yellow { background-color: yellow; }
+.red { background-color: red; }
+.blue { background-color: blue; }
+.purple { background-color: purple; }
+.userflash { background-color: green; }
+.bright-flash { box-shadow: 0 0 30px 15px white; border-color: lightgrey; }
+
+/* --- Mobile Start/Restart Button Styles --- */
+#mobile-start-btn, #restart-btn {
+    display: none; /* Hidden by default */
+    padding: 10px 25px;
+    font-size: 1rem;
+    margin-top: 15px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#mobile-start-btn { background-color: #27ae60; }
+#mobile-start-btn:hover { background-color: #2ecc71; }
+#restart-btn { background-color: #c0392b; }
+#restart-btn:hover { background-color: #e74c3c; }
+
+.hidden { display: none !important; }
+
+/* --- Footer Styles --- */
+footer { position: fixed; bottom: 0; left: 0; width: 100%; padding: 10px; background-color: rgba(0, 0, 0, 0.7); color: white; font-size: 0.9rem; z-index: 100; }
+footer a { color: #87CEEB; text-decoration: none; margin: 0 5px; }
+footer a:hover { text-decoration: underline; }
+
+/* --- RESPONSIVE DESIGN (MOBILE) --- */
+@media (max-width: 768px) {
+    .welcome-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    #welcome-screen h1 {
+        font-size: 2rem;
+    }
+    .main-content {
+        flex-direction: column-reverse; /* Stack score panel on top of game buttons */
+        gap: 20px;
+    }
+    .btn {
+        height: 120px;
+        width: 120px;
+        margin: 0.5rem;
+    }
+    #instructions {
+        display: none; /* Hide "Press any key" on mobile */
+    }
+    #mobile-start-btn {
+        display: inline-block; /* Show mobile start button */
+    }
+    #restart-btn {
+        display: inline-block; /* Allow restart button to be shown by JS */
+    }
+}

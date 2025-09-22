@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Welcome Screen (P1) -->
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <!-- Left Side: Input -->
+            <div class="welcome-left">
+                <h1>Welcome to Simon Says!</h1>
+                <input type="text" id="name-input" placeholder="Enter your name">
+                <button id="start-button">Start Game</button>
+            </div>
+            <!-- Right Side: Rules -->
+            <div class="welcome-right">
+                <h2>Game Rules</h2>
+                <ul>
+                    <li>Watch the pattern of lights and sounds.</li>
+                    <li>Repeat the pattern by clicking the buttons in the correct order.</li>
+                    <li>The pattern gets one step longer each round.</li>
+                    <li>If you make a mistake, the game is over!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Game (P2 - Initially Hidden) -->
+    <div id="game-container">
+        <h1>Simon Says Game</h1>
+        <h2>Level 1</h2>
+        
+        <!-- Instructions for different screen sizes -->
+        <div id="instructions">Press any key to start</div>
+        <button id="mobile-start-btn">Start Game</button>
+        <button id="restart-btn" class="hidden">Restart Game</button>
+        
+        <div class="main-content">
+            <!-- Game Buttons Area -->
+            <div class="btn-container"> 
+                <div class="line-one">
+                    <div class="btn red" type="button" id="red">1</div>
+                    <div class="btn yellow" type="button" id="yellow">2</div>
+                </div>
+                <div class="line-two">
+                    <div class="btn blue" type="button" id="blue">3</div>
+                    <div class="btn purple" type="button" id="purple">4</div>
+                </div>
+            </div>
+
+            <!-- Score Panel Area -->
+            <div id="score-panel">
+                <div class="score-section">
+                    <h4>All-Time High Score</h4>
+                    <p id="all-time-score-value">0</p>
+                </div>
+                <hr>
+                <div class="score-section">
+                    <h3>Your High Score</h3>
+                    <p id="current-high-score">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        Created by Mohammed Nawaz | Mobile: 7207468414 | 
+        <a href="mailto:mohammednawaz8414@gmail.com">Email</a> |
+        <a href="https://www.linkedin.com/in/mohammednawaz8414/" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/Nawaz8414" target="_blank">GitHub</a>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
